@@ -34,7 +34,7 @@ export function About() {
                 I am a Computer Science and Engineering student at Lovely Professional University with a strong interest in cybersecurity, networking, and ethical hacking. I have experience working with security tools such as Nmap, Wireshark, Nikto, Splunk, and Cisco Packet Tracer, and I am skilled in programming languages including C++, C, Python, SQL, HTML, and CSS.
               </p>
               <p className="text-gray-300 leading-relaxed text-[15px] mb-4">
-                I have worked as a freelance technical content writer and analyst, where I solved technical problems and reviewed educational content while maintaining high accuracy and quality. I have also developed cybersecurity research projects such as a Python-based keylogger and a Wi-Fi attack simulation system to analyze real-world network vulnerabilities.
+                I have worked as a freelance technical content writer and analyst, where I solved technical problems and reviewed educational content while maintaining high accuracy and quality. I have also developed cybersecurity research projects such as a Python-based keylogger, a Wi-Fi attack simulation system, and a comprehensive Splunk-based Active Directory monitoring lab to analyze and defend against real-world network vulnerabilities.
               </p>
               <p className="text-gray-300 leading-relaxed text-[15px]">
                 Through certifications from Fortinet and Cisco and achievements on platforms like TryHackMe and HackerRank, I continuously work to strengthen my skills in cybersecurity and network security.
