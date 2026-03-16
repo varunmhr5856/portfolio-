@@ -50,15 +50,7 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <div className="flex justify-center mb-8">
-            <div className="relative w-32 h-32 md:w-40 md:h-40 rounded-full border-2 border-[var(--color-cyber-green)] p-1 overflow-hidden shadow-[0_0_20px_rgba(0,255,65,0.3)]">
-              <img 
-                src="/profile.png" 
-                alt="Varun Mehrotra" 
-                className="w-full h-full object-cover rounded-full transition-all duration-500"
-              />
-            </div>
-          </div>
+
           
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white text-glow">
             Varun <span className="text-[var(--color-cyber-green)]">Mehrotra</span>
