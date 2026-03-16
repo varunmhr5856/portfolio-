@@ -32,7 +32,7 @@ const projects: Project[] = [
     details: "A comprehensive wireless security research project that simulated common Wi-Fi attack vectors:\n\n• Implemented Evil Twin attacks to intercept network traffic and analyze vulnerabilities\n• Performed deauthentication attacks using custom Scapy scripts to study 802.11 protocol weaknesses\n• Used ESP8266 microcontroller to conduct beacon flooding and probe sniffing\n• Documented network behavior changes and defensive countermeasures\n\nThis research project enhanced understanding of wireless protocol security and helped develop skills in network packet analysis and wireless penetration testing.",
     tech: ["Kali Linux", "Scapy", "ESP8266", "Python", "Wireshark"],
     icon: Wifi,
-    github: "#",
+    github: "https://github.com/varunmhr5856/Wifi-Attack-System",
     color: "blue",
   },
   {
