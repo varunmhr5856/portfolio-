@@ -41,7 +41,7 @@ const projects: Project[] = [
     details: "A cybersecurity research tool built in Python to understand keylogging techniques used by malware:\n\n• Captured keystrokes silently in the background using the Pynput library\n• Implemented log file management with timestamped entries for each session\n• Added email-based exfiltration simulation to understand C2 communication patterns\n• Studied stealth techniques including process hiding and startup persistence\n• Used exclusively in controlled environments for educational and defensive research purposes\n\nThis project provided deep insight into how keyloggers work, enabling better understanding of how to detect and defend against them.",
     tech: ["Python", "Pynput", "SMTP", "Threading"],
     icon: Keyboard,
-    github: "#",
+    github: "https://github.com/varunmhr5856/KeyLogger",
     color: "green",
   }
 ];
