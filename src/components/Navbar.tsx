@@ -60,15 +60,14 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "glass-panel py-3" : "py-5 bg-transparent"
+        "absolute top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
         <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center gap-2 group">
-          <div className="flex items-center justify-center w-10 h-10 rounded-lg border-2 border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.05)] group-hover:border-[var(--color-cyber-blue)] group-hover:bg-[rgba(8,247,254,0.05)] transition-all duration-300 shadow-[0_0_10px_rgba(0,255,65,0.2)] group-hover:shadow-[0_0_15px_rgba(8,247,254,0.4)]">
-            <span className="font-mono font-bold text-xl tracking-tighter text-white group-hover:text-white transition-colors">
-              V<span className="text-[var(--color-cyber-green)] group-hover:text-[var(--color-cyber-blue)] transition-colors">.</span>M
+          <div className="flex items-center justify-center w-10 h-10 rounded-lg border-2 border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.05)] transition-all duration-300 shadow-[0_0_10px_rgba(0,255,65,0.2)]">
+            <span className="font-mono font-bold text-xl tracking-tighter text-white transition-colors">
+              V<span className="text-[var(--color-cyber-green)] transition-colors">.</span>M
             </span>
           </div>
         </a>
@@ -81,7 +80,7 @@ export function Navbar() {
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
               className={cn(
-                "font-mono text-sm tracking-wide transition-all hover:text-[var(--color-cyber-green)] relative",
+                "font-mono text-sm tracking-wide transition-all relative",
                 active === link.href.replace("#", "") ? "text-[var(--color-cyber-green)]" : "text-gray-400"
               )}
             >
