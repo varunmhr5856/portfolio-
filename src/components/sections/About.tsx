@@ -50,17 +50,27 @@ export function About() {
             className="grid grid-cols-2 gap-4"
           >
             {[
-              { icon: Shield, title: "Ethical Hacking", desc: "Vulnerability analysis" },
-              { icon: Server, title: "Network Security", desc: "Defensive systems" },
-              { icon: Brain, title: "Prompt Engineering", desc: "AI interaction" },
-              { icon: Terminal, title: "Development", desc: "Secure coding" }
+              { icon: Shield, title: "Ethical Hacking", desc: "Vulnerability analysis", proficiency: 92 },
+              { icon: Server, title: "Network Security", desc: "Defensive systems", proficiency: 89 },
+              { icon: Brain, title: "Prompt Engineering", desc: "AI interaction", proficiency: 94 },
+              { icon: Terminal, title: "Development", desc: "Secure coding", proficiency: 87 }
             ].map((item, i) => (
-              <GlassCard key={i} interactive glowColor="blue" className="flex flex-col items-center text-center p-6">
-                <div className="w-12 h-12 rounded-full bg-[rgba(8,247,254,0.1)] flex items-center justify-center mb-4 text-[var(--color-cyber-blue)]">
+              <GlassCard key={i} interactive glowColor="blue" className="relative flex flex-col items-center text-center p-6 group overflow-hidden">
+                <div className="w-12 h-12 rounded-full bg-[rgba(8,247,254,0.1)] flex items-center justify-center mb-4 text-[var(--color-cyber-blue)] group-hover:scale-0 transition-transform duration-300">
                   <item.icon size={24} />
                 </div>
-                <h4 className="font-bold text-white font-mono text-sm mb-2">{item.title}</h4>
-                <p className="text-xs text-gray-500">{item.desc}</p>
+                
+                <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300">
+                  <span className="text-3xl font-bold text-[var(--color-cyber-blue)] font-mono tracking-tighter">
+                    {item.proficiency}%
+                  </span>
+                  <span className="text-[10px] text-gray-500 font-mono uppercase tracking-widest mt-1">Proficiency</span>
+                </div>
+
+                <div className="group-hover:opacity-0 transition-opacity duration-300">
+                  <h4 className="font-bold text-white font-mono text-sm mb-2">{item.title}</h4>
+                  <p className="text-xs text-gray-500">{item.desc}</p>
+                </div>
               </GlassCard>
             ))}
           </motion.div>
