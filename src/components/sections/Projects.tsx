@@ -14,6 +14,7 @@ type Project = {
   icon: React.ElementType;
   github: string;
   color: "green" | "blue";
+  image: string;
 };
 
 const projects: Project[] = [
@@ -25,6 +26,7 @@ const projects: Project[] = [
     icon: ShieldCheck,
     github: "https://github.com/varunmhr5856/active-directory-monitoring-splunk",
     color: "green",
+    image: "/project-splunk.png",
   },
   {
     title: "Wi-Fi Attack System",
@@ -34,6 +36,7 @@ const projects: Project[] = [
     icon: Wifi,
     github: "https://github.com/varunmhr5856/Wifi-Attack-System",
     color: "blue",
+    image: "/project-wifi.png",
   },
   {
     title: "Python Keylogger",
@@ -43,6 +46,7 @@ const projects: Project[] = [
     icon: Keyboard,
     github: "https://github.com/varunmhr5856/KeyLogger",
     color: "green",
+    image: "/project-keylogger.png",
   }
 ];
 
@@ -81,6 +85,16 @@ export function Projects() {
               >
                 {/* Background Pattern */}
                 <div className={`absolute -right-16 -top-16 w-48 h-48 rounded-full blur-[80px] opacity-20 pointer-events-none ${project.color === 'green' ? 'bg-[var(--color-cyber-green)]' : 'bg-[var(--color-cyber-blue)]'}`} />
+
+                {/* Project Image */}
+                <div className="relative h-48 mb-6 rounded-lg overflow-hidden border border-white/10">
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                </div>
 
                 <div className="flex items-center justify-between mb-6">
                   <div className={`w-12 h-12 rounded-lg flex items-center justify-center border ${project.color === 'green' ? 'border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.1)] text-[var(--color-cyber-green)]' : 'border-[var(--color-cyber-blue)] bg-[rgba(8,247,254,0.1)] text-[var(--color-cyber-blue)]'}`}>
@@ -180,6 +194,15 @@ export function Projects() {
                       {tech}
                     </span>
                   ))}
+                </div>
+
+                {/* Modal Project Image */}
+                <div className={`mb-8 w-full h-64 rounded-xl overflow-hidden border ${selected.color === 'green' ? 'border-[var(--color-cyber-green)]/30' : 'border-[var(--color-cyber-blue)]/30'}`}>
+                  <img 
+                    src={selected.image} 
+                    alt={selected.title} 
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 {/* Details */}
