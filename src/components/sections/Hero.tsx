@@ -50,6 +50,16 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
+          {/* Profile Picture */}
+          <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8">
+            <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyber-green)] animate-[pulse_2s_infinite] opacity-50 shadow-[0_0_15px_var(--color-cyber-green)]" />
+            <div className="absolute inset-2 rounded-full border border-[var(--color-cyber-blue)] opacity-30" />
+            <img 
+              src="/profile.png" 
+              alt="Varun Mehrotra" 
+              className="w-full h-full object-cover rounded-full border-2 border-white/10 relative z-10"
+            />
+          </div>
 
           
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white text-glow">
