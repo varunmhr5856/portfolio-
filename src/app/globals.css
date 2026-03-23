@@ -30,15 +30,13 @@
     }
   }
 
-  @keyframes blink-caret {
-
-    from,
-    to {
-      border-color: transparent
+  @keyframes scan {
+    from {
+      top: -20%;
     }
 
-    50% {
-      border-color: var(--color-cyber-green)
+    to {
+      top: 120%;
     }
   }
 }

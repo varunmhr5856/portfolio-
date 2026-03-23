@@ -44,28 +44,28 @@ export function Hero() {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
       <div className="container relative z-10 px-4 md:px-6 mx-auto">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
           {/* Profile Picture */}
-          <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8">
-            <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyber-green)] animate-[pulse_2s_infinite] opacity-50 shadow-[0_0_15px_var(--color-cyber-green)]" />
-            <div className="absolute inset-2 rounded-full border border-[var(--color-cyber-blue)] opacity-30" />
+          <div className="relative w-44 h-44 md:w-60 md:h-60 mx-auto mb-10">
+            <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyber-green)] animate-[pulse_2s_infinite] opacity-50 shadow-[0_0_20px_var(--color-cyber-green)]" />
+            <div className="absolute inset-3 rounded-full border border-[var(--color-cyber-blue)] opacity-30" />
             <img 
-              src="/profile.png" 
+              src="/profile_new.jpg" 
               alt="Varun Mehrotra" 
               className="w-full h-full object-cover rounded-full border-2 border-white/10 relative z-10"
             />
           </div>
 
-          
+
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white text-glow">
             Varun <span className="text-[var(--color-cyber-green)]">Mehrotra</span>
           </h1>
-          
+
           <h2 className="text-xl md:text-2xl text-gray-400 font-mono mb-8 h-8">
             <span className="text-white">Role:</span> {text}
             <span className="inline-block w-[2px] h-5 bg-[var(--color-cyber-green)] ml-1 animate-[blink-caret_.75s_step-end_infinite]"></span>
