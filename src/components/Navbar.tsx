@@ -28,7 +28,7 @@ export function Navbar() {
       // Simple active link detection based on scroll position
       const sections = document.querySelectorAll("section[id]");
       const scrollY = window.pageYOffset;
-      
+
       sections.forEach((current) => {
         const sectionHeight = (current as HTMLElement).offsetHeight;
         const sectionTop = (current as HTMLElement).offsetTop - 100;
@@ -60,7 +60,7 @@ export function Navbar() {
   return (
     <header
       className={cn(
-        "absolute top-0 left-0 right-0 z-50 transition-all duration-300 py-5 bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 bg-black/90 backdrop-blur-md border-b border-white/5"
       )}
     >
       <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
@@ -116,8 +116,8 @@ export function Navbar() {
               onClick={(e) => handleNavClick(e, link.href)}
               className={cn(
                 "font-mono px-6 py-3 text-sm tracking-wide transition-all border-l-2",
-                active === link.href.replace("#", "") 
-                  ? "border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.05)] text-[var(--color-cyber-green)]" 
+                active === link.href.replace("#", "")
+                  ? "border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.05)] text-[var(--color-cyber-green)]"
                   : "border-transparent text-gray-400 hover:text-[var(--color-cyber-green)] hover:bg-[rgba(0,255,65,0.02)]"
               )}
             >

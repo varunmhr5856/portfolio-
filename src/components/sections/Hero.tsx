@@ -51,9 +51,9 @@ export function Hero() {
           className="max-w-4xl mx-auto text-center"
         >
           {/* Profile Picture */}
-          <div className="relative w-56 h-56 md:w-80 md:h-80 mx-auto mb-12">
-            <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyber-green)] animate-[pulse_3s_infinite] opacity-50 shadow-[0_0_30px_var(--color-cyber-green)]" />
-            <div className="absolute inset-4 rounded-full border border-[var(--color-cyber-blue)] opacity-40" />
+          <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8">
+            <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyber-green)] animate-[pulse_3s_infinite] opacity-50 shadow-[0_0_20px_var(--color-cyber-green)]" />
+            <div className="absolute inset-2 rounded-full border border-[var(--color-cyber-blue)] opacity-40" />
             <img 
               src="/profile_new.jpg" 
               alt="Varun Mehrotra" 
