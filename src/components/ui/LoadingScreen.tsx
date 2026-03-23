@@ -20,23 +20,35 @@ const DRAGON_PATTERN = [
   "        \\________________  "
 ];
 
-// A better dragon ASCII for the matrix masking
+// A much larger, more majestic dragon ASCII for the matrix masking
 const DRAGON_ASCII = [
-  "                                             ",
-  "                ___====-_  _-====___         ",
-  "          _--^^^#####//      \\\\#####^^^--_   ",
-  "       _-^##########// (    ) \\\\##########^- ",
-  "      -############//  |\\^^/|  \\\\############-",
-  "    _/############//   (@::@)   \\\\############\\_",
-  "   /#############((     \\\\//     ))#############\\",
-  "  -###############\\\\    (oo)    //###############-",
-  " -#################\\\\  / VV \\  //#################-",
-  "-###################\\\\/      \\//###################-",
-  "_#/|##########/\\######(   /\\   )######/\\##########|\\#_",
-  "|/ |# /\\# /\\#|  |# /\\#  \\_|  |_/  # /\\#|  |# /\\# /\\# | \\",
-  "`  |/  V  V  |  |/  V  |\\____/|  V  \\|  |/  V  V  |  '",
-  "   `         `  `      /      \\      '  '         '   ",
-  "                      (________)                      "
+  "                                                                               ",
+  "                                     _                                         ",
+  "                                  -====-_-====___                              ",
+  "                            _--^^^#####//      \\\\#####^^^--_                  ",
+  "                         _-^##########// (    ) \\\\##########^-                ",
+  "                        -############//  |\\^^/|  \\\\############-              ",
+  "                      _/############//   (@::@)   \\\\############\\_            ",
+  "                     /#############((     \\\\//     ))#############\\           ",
+  "                    -###############\\\\    (oo)    //###############-          ",
+  "                   -#################\\\\  / VV \\  //#################-         ",
+  "                  -###################\\\\/      \\//###################-        ",
+  "                  _#/|##########/\\######(   /\\   )######/\\##########|\\#_      ",
+  "                  |/ |# /\\# /\\#|  |# /\\#  \\_|  |_/  # /\\#|  |# /\\# /\\# | \\     ",
+  "                  `  |/  V  V  |  |/  V  |\\____/|  V  \\|  |/  V  V  |  '      ",
+  "                     `         `  `      /      \\      '  '         '         ",
+  "                                        (________)                              ",
+  "                                                                               ",
+  "             _                                                                 ",
+  "            / \\      _-'                                                       ",
+  "          _/|  \\-''- _ /                                                       ",
+  "     __-' { |          \\                                                       ",
+  "         /             \\                                                       ",
+  "         /       \"o.  |o\"                                                      ",
+  "         |            \\                                                        ",
+  "         \\            /                                                        ",
+  "          \\_    (_   /                                                         ",
+  "            \"--__\\_\\_/                                                         "
 ];
 
 export function LoadingScreen() {
@@ -110,12 +122,12 @@ export function LoadingScreen() {
       }
     }
 
-    const interval = setInterval(draw, 50);
+    const interval = setInterval(draw, 100);
 
-    // Auto-complete after 3.5 seconds
+    // Auto-complete after 4.5 seconds
     const timer = setTimeout(() => {
       setComplete(true);
-    }, 3500);
+    }, 4500);
 
     return () => {
       clearInterval(interval);
@@ -129,26 +141,13 @@ export function LoadingScreen() {
         <motion.div
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 1.5 }}
           className="fixed inset-0 z-[9999] bg-black flex items-center justify-center overflow-hidden"
         >
           <canvas ref={canvasRef} className="absolute inset-0" />
           
           {/* Subtle Scanning Line */}
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-[rgba(0,255,65,0.05)] to-transparent h-20 animate-[scan_3s_linear_infinite]" style={{ top: '-10% '}} />
-          
-          <div className="relative z-10 text-center">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="px-6 py-2 border border-[var(--color-cyber-green)] bg-black/80 rounded-sm"
-            >
-              <h1 className="text-[var(--color-cyber-green)] font-mono text-xs md:text-sm tracking-[0.5em] font-bold uppercase animate-pulse">
-                &gt; INITIALIZING_DRAGON_PROTOCOL
-              </h1>
-            </motion.div>
-          </div>
+          <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-[rgba(0,255,65,0.03)] to-transparent h-40 animate-[scan_4s_linear_infinite]" style={{ top: '-20%' }} />
         </motion.div>
       )}
     </AnimatePresence>
