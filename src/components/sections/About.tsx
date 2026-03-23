@@ -75,9 +75,9 @@ export function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="lg:col-span-5 h-full"
+            className="lg:col-span-5"
           >
-            <div className="relative h-full min-h-[400px] rounded-2xl overflow-hidden border border-white/10 group">
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 group h-full min-h-[300px] max-h-[500px]">
               <div className="absolute inset-0 bg-gradient-to-tr from-[rgba(0,255,65,0.1)] to-transparent z-10" />
               <img 
                 src="/about-visual.png" 
@@ -86,8 +86,9 @@ export function About() {
               />
               <div className="absolute bottom-6 left-6 right-6 z-20">
                 <div className="glass-panel p-4 rounded-lg border-l-4 border-[var(--color-cyber-green)]">
-                  <p className="font-mono text-xs text-[var(--color-cyber-green)] animate-pulse mb-1">SYSTEM_STATUS: ACTIVE</p>
-                  <p className="text-white text-sm font-bold tracking-wider uppercase">Advanced Threat Intelligence Lab</p>
+                  <p className="font-mono text-[10px] text-[var(--color-cyber-green)] animate-pulse mb-1">SYSTEM_STATUS: ACTIVE</p>
+                  <p className="text-white text-xs font-bold tracking-widest uppercase mb-1">About Me</p>
+                  <p className="text-gray-400 text-[10px] font-mono uppercase tracking-wider">Advanced Threat Intelligence Lab</p>
                 </div>
               </div>
             </div>
