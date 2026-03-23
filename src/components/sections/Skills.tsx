@@ -34,47 +34,20 @@ export function Skills() {
         <div className="h-1 w-20 bg-[var(--color-cyber-blue)] mx-auto rounded-full shadow-[0_0_10px_var(--color-cyber-blue)]" />
       </div>
 
-      <div className="w-full relative py-10 flex flex-col gap-8 border-y border-[rgba(255,255,255,0.05)] bg-[rgba(10,10,10,0.5)]">
-        {/* Left and Right Fade Overlays */}
-        <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
-        <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
-
-        {/* Row 1 */}
-        <div className="flex animate-[marquee_25s_linear_infinite] w-[max-content] hover:[animation-play-state:paused]">
-          {[...skills.slice(0, 8), ...skills.slice(0, 8), ...skills.slice(0, 8)].map((skill, index) => (
-            <div key={index} className="w-48 mx-4 group perspective-1000">
+      <div className="container px-4 md:px-6 mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8">
+          {skills.map((skill, index) => (
+            <div key={index} className="w-40 md:w-48 group perspective-1000">
               <GlassCard
                 interactive
-                glowColor="green"
-                className="flex flex-col items-center justify-center p-6 h-full backdrop-blur-md transform-style-3d group-hover:rotate-x-12 group-hover:scale-105 transition-all duration-500"
+                glowColor={index % 2 === 0 ? "green" : "blue"}
+                className="flex flex-col items-center justify-center p-6 h-full backdrop-blur-md transform-style-3d group-hover:rotate-x-12 group-hover:scale-105 transition-all duration-500 border-white/5 bg-[rgba(15,15,15,0.4)]"
               >
                 <div className="w-16 h-16 flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-[360deg]">
                   <img
                     src={skill.icon}
                     alt={skill.name}
-                    className="w-12 h-12 object-contain opacity-90 mix-blend-screen drop-shadow-[0_0_8px_rgba(0,255,65,0.8)]"
-                  />
-                </div>
-                <h3 className="font-mono text-white text-sm tracking-widest">{skill.name}</h3>
-              </GlassCard>
-            </div>
-          ))}
-        </div>
-
-        {/* Row 2 */}
-        <div className="flex animate-[marquee_25s_linear_infinite_reverse] w-[max-content] hover:[animation-play-state:paused]">
-          {[...skills.slice(8), ...skills.slice(8), ...skills.slice(8)].map((skill, index) => (
-            <div key={index} className="w-48 mx-4 group perspective-1000">
-              <GlassCard
-                interactive
-                glowColor="blue"
-                className="flex flex-col items-center justify-center p-6 h-full backdrop-blur-md transform-style-3d group-hover:rotate-x-12 group-hover:scale-105 transition-all duration-500"
-              >
-                <div className="w-16 h-16 flex items-center justify-center mb-4 transition-transform duration-500 group-hover:rotate-[360deg]">
-                  <img
-                    src={skill.icon}
-                    alt={skill.name}
-                    className="w-12 h-12 object-contain opacity-90 mix-blend-screen drop-shadow-[0_0_8px_rgba(8,247,254,0.8)]"
+                    className={`w-12 h-12 object-contain opacity-90 mix-blend-screen drop-shadow-[0_0_8px_${index % 2 === 0 ? 'rgba(0,255,65,0.8)' : 'rgba(8,247,254,0.8)'}]`}
                   />
                 </div>
                 <h3 className="font-mono text-white text-sm tracking-widest">{skill.name}</h3>

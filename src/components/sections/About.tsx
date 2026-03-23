@@ -36,7 +36,7 @@ export function About() {
                 
                 <GlassCard className="relative p-8 h-full flex flex-col justify-center overflow-hidden border-white/10 bg-[rgba(10,10,10,0.6)]">
                   <h3 className="text-[var(--color-cyber-green)] font-mono text-sm mb-4 uppercase tracking-[0.3em] font-bold">
-                    &gt; Biography_Initialization
+                    &gt; About
                   </h3>
                   <p className="text-gray-300 leading-relaxed text-[16px] mb-6 font-sans">
                     I am a Computer Science and Engineering student at Lovely Professional University with a strong interest in cybersecurity, networking, and ethical hacking. I have experience working with security tools such as Nmap, Wireshark, Nikto, Splunk, and Cisco Packet Tracer, and I am skilled in programming languages including C++, C, Python, SQL, HTML, and CSS.
