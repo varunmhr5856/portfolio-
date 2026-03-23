@@ -88,9 +88,9 @@ export function Projects() {
 
                 {/* Project Image */}
                 <div className="relative h-48 mb-6 rounded-lg overflow-hidden border border-white/10">
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
+                  <img
+                    src={project.image}
+                    alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -198,9 +198,9 @@ export function Projects() {
 
                 {/* Modal Project Image */}
                 <div className={`mb-8 w-full h-64 rounded-xl overflow-hidden border ${selected.color === 'green' ? 'border-[var(--color-cyber-green)]/30' : 'border-[var(--color-cyber-blue)]/30'}`}>
-                  <img 
-                    src={selected.image} 
-                    alt={selected.title} 
+                  <img
+                    src={selected.image}
+                    alt={selected.title}
                     className="w-full h-full object-cover"
                   />
                 </div>
