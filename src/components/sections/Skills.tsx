@@ -22,11 +22,7 @@ const skills = [
 ];
 
 // Doubling the skills array to create a seamless infinite marquee effect
-const topSkills = [...skills.slice(0, Math.ceil(skills.length / 2))];
-const bottomSkills = [...skills.slice(Math.ceil(skills.length / 2))];
-
-const marqueeTop = [...topSkills, ...topSkills, ...topSkills, ...topSkills];
-const marqueeBottom = [...bottomSkills, ...bottomSkills, ...bottomSkills, ...bottomSkills];
+const marqueeSkills = [...skills, ...skills, ...skills];
 
 export function Skills() {
   return (
@@ -43,10 +39,10 @@ export function Skills() {
         <div className="absolute top-0 left-0 h-full w-32 bg-gradient-to-r from-[var(--background)] to-transparent z-10 pointer-events-none" />
         <div className="absolute top-0 right-0 h-full w-32 bg-gradient-to-l from-[var(--background)] to-transparent z-10 pointer-events-none" />
 
-        {/* Row 1: Left to Right */}
-        <div className="flex animate-[marquee_40s_linear_infinite] w-[max-content] hover:[animation-play-state:paused]">
-          {marqueeTop.map((skill, index) => (
-            <div key={`top-${index}`} className="w-48 mx-4 group perspective-1000">
+        {/* Row 1 */}
+        <div className="flex animate-[marquee_25s_linear_infinite] w-[max-content] hover:[animation-play-state:paused]">
+          {[...skills.slice(0, 8), ...skills.slice(0, 8), ...skills.slice(0, 8)].map((skill, index) => (
+            <div key={index} className="w-48 mx-4 group perspective-1000">
               <GlassCard
                 interactive
                 glowColor="green"
@@ -65,10 +61,10 @@ export function Skills() {
           ))}
         </div>
 
-        {/* Row 2: Right to Left */}
-        <div className="flex animate-[marquee-reverse_40s_linear_infinite] w-[max-content] hover:[animation-play-state:paused]">
-          {marqueeBottom.map((skill, index) => (
-            <div key={`bottom-${index}`} className="w-48 mx-4 group perspective-1000">
+        {/* Row 2 */}
+        <div className="flex animate-[marquee_25s_linear_infinite_reverse] w-[max-content] hover:[animation-play-state:paused]">
+          {[...skills.slice(8), ...skills.slice(8), ...skills.slice(8)].map((skill, index) => (
+            <div key={index} className="w-48 mx-4 group perspective-1000">
               <GlassCard
                 interactive
                 glowColor="blue"
