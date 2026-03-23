@@ -57,7 +57,7 @@ export function About() {
                 <img 
                   src="/about-ai.png" 
                   alt="Cybersecurity Visual" 
-                  className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 scale-105 group-hover:scale-100"
+                  className="w-full h-full object-cover opacity-100 transition-all duration-700 scale-105 group-hover:scale-100"
                 />
                 <div className="absolute inset-0 border-2 border-[var(--color-cyber-green)] opacity-0 group-hover:opacity-30 transition-opacity duration-500 z-20" />
               </div>
