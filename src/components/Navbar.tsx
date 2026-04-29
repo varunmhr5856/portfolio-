@@ -50,9 +50,9 @@ export function Navbar() {
     const targetId = href.replace("#", "");
     const elem = document.getElementById(targetId);
     if (elem) {
-      window.scrollTo({
-        top: elem.offsetTop - 80,
+      elem.scrollIntoView({
         behavior: "smooth",
+        block: "start",
       });
     }
   };
@@ -66,25 +66,25 @@ export function Navbar() {
           : "bg-transparent py-5"
       )}
     >
-      <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
+      <div className="w-full px-6 md:px-12 flex items-center justify-between">
         <a href="#home" onClick={(e) => handleNavClick(e, "#home")} className="flex items-center gap-2 group">
           <div className="flex items-center justify-center w-10 h-10 rounded-lg border-2 border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.05)] transition-all duration-300 shadow-[0_0_10px_rgba(0,255,65,0.2)]">
-            <span className="font-mono font-bold text-xl tracking-tighter text-white transition-colors">
-              V<span className="text-[var(--color-cyber-green)] transition-colors">.</span>M
+            <span className="font-mono font-bold text-xl tracking-tighter text-white">
+              V<span className="text-[var(--color-cyber-green)]">.</span>M
             </span>
           </div>
         </a>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        {/* Desktop Nav - Optimized for many links */}
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
               onClick={(e) => handleNavClick(e, link.href)}
               className={cn(
-                "font-mono text-sm tracking-wide transition-all relative",
-                active === link.href.replace("#", "") ? "text-[var(--color-cyber-green)]" : "text-gray-400"
+                "font-mono text-[11px] xl:text-xs tracking-wider transition-all relative uppercase",
+                active === link.href.replace("#", "") ? "text-[var(--color-cyber-green)]" : "text-gray-400 hover:text-white"
               )}
             >
               {link.name}
@@ -99,7 +99,7 @@ export function Navbar() {
         </nav>
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-gray-300" onClick={() => setIsOpen(!isOpen)}>
+        <button className="lg:hidden text-gray-300" onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
@@ -110,7 +110,7 @@ export function Navbar() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="absolute top-16 left-0 right-0 glass-panel border-t border-[rgba(255,255,255,0.05)] py-4 flex flex-col md:hidden"
+          className="absolute top-16 left-0 right-0 glass-panel border-t border-[rgba(255,255,255,0.05)] py-4 flex flex-col lg:hidden"
         >
           {navLinks.map((link) => (
             <a

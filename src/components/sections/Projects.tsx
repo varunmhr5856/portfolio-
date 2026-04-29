@@ -54,7 +54,7 @@ export function Projects() {
   const [selected, setSelected] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="py-24 relative">
+    <section id="projects" className="min-h-screen flex items-center justify-center py-12 relative overflow-hidden bg-[rgba(0,0,0,0.5)]">
       <div className="container px-4 md:px-6 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -162,67 +162,74 @@ export function Projects() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 40 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative z-10 w-full max-w-2xl max-h-[85vh] overflow-y-auto"
+              className="relative z-10 w-full max-w-4xl mx-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className={`relative rounded-2xl border p-8 bg-[rgba(10,10,10,0.97)] backdrop-blur-xl shadow-2xl ${selected.color === 'green' ? 'border-[var(--color-cyber-green)] shadow-[0_0_40px_rgba(0,255,65,0.15)]' : 'border-[var(--color-cyber-blue)] shadow-[0_0_40px_rgba(8,247,254,0.15)]'}`}>
+              <div className={`relative rounded-2xl border p-5 md:p-8 bg-[rgba(10,10,10,0.98)] backdrop-blur-2xl shadow-2xl ${selected.color === 'green' ? 'border-[var(--color-cyber-green)] shadow-[0_0_40px_rgba(0,255,65,0.15)]' : 'border-[var(--color-cyber-blue)] shadow-[0_0_40px_rgba(8,247,254,0.15)]'}`}>
 
                 {/* Close button */}
                 <button
                   onClick={() => setSelected(null)}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-1"
+                  className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors p-1 z-30"
                 >
                   <X size={24} />
                 </button>
 
                 {/* Header */}
-                <div className="flex items-center gap-4 mb-6">
-                  <div className={`w-14 h-14 rounded-xl flex items-center justify-center border ${selected.color === 'green' ? 'border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.1)] text-[var(--color-cyber-green)]' : 'border-[var(--color-cyber-blue)] bg-[rgba(8,247,254,0.1)] text-[var(--color-cyber-blue)]'}`}>
+                <div className="flex items-center gap-4 mb-6 pr-8">
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center border flex-shrink-0 ${selected.color === 'green' ? 'border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.1)] text-[var(--color-cyber-green)]' : 'border-[var(--color-cyber-blue)] bg-[rgba(8,247,254,0.1)] text-[var(--color-cyber-blue)]'}`}>
                     <selected.icon size={28} />
                   </div>
-                  <div>
-                    <h3 className={`text-2xl font-bold font-mono ${selected.color === 'green' ? 'text-[var(--color-cyber-green)]' : 'text-[var(--color-cyber-blue)]'}`}>
-                      {selected.title}
-                    </h3>
+                  <h3 className={`text-2xl md:text-3xl font-bold font-mono ${selected.color === 'green' ? 'text-[var(--color-cyber-green)]' : 'text-[var(--color-cyber-blue)]'}`}>
+                    {selected.title}
+                  </h3>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {/* Left Column: Image and Tech */}
+                  <div className="flex flex-col">
+                    {/* Modal Project Image */}
+                    <div className={`mb-6 w-full h-48 md:h-64 flex-shrink-0 rounded-xl overflow-hidden border ${selected.color === 'green' ? 'border-[var(--color-cyber-green)]/30' : 'border-[var(--color-cyber-blue)]/30'}`}>
+                      <img
+                        src={selected.image}
+                        alt={selected.title}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    
+                    {/* Tech Tags */}
+                    <div className="flex flex-wrap gap-2">
+                      {selected.tech.map((tech, i) => (
+                        <span key={i} className={`px-3 py-1 text-xs font-mono rounded border ${selected.color === 'green' ? 'bg-[rgba(0,255,65,0.08)] text-[var(--color-cyber-green)] border-[rgba(0,255,65,0.3)]' : 'bg-[rgba(8,247,254,0.08)] text-[var(--color-cyber-blue)] border-[rgba(8,247,254,0.3)]'}`}>
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Right Column: Details and Buttons */}
+                  <div className="flex flex-col h-full">
+                    {/* Details */}
+                    <div className="text-gray-300 leading-relaxed text-sm whitespace-pre-line mb-8 flex-grow">
+                      {selected.details}
+                    </div>
+
+                    {/* Footer Buttons */}
+                    <div className="flex gap-4 flex-wrap mt-auto">
+                      {selected.github !== "#" && (
+                        <a href={selected.github} target="_blank" rel="noopener noreferrer">
+                          <NeonButton color={selected.color} variant="solid">
+                            <Github size={16} className="mr-2" /> View on GitHub
+                          </NeonButton>
+                        </a>
+                      )}
+                      <NeonButton color="blue" variant="outline" onClick={() => setSelected(null)}>
+                        Close
+                      </NeonButton>
+                    </div>
                   </div>
                 </div>
 
-                {/* Tech Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {selected.tech.map((tech, i) => (
-                    <span key={i} className={`px-3 py-1 text-xs font-mono rounded border ${selected.color === 'green' ? 'bg-[rgba(0,255,65,0.08)] text-[var(--color-cyber-green)] border-[rgba(0,255,65,0.3)]' : 'bg-[rgba(8,247,254,0.08)] text-[var(--color-cyber-blue)] border-[rgba(8,247,254,0.3)]'}`}>
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Modal Project Image */}
-                <div className={`mb-8 w-full h-64 rounded-xl overflow-hidden border ${selected.color === 'green' ? 'border-[var(--color-cyber-green)]/30' : 'border-[var(--color-cyber-blue)]/30'}`}>
-                  <img
-                    src={selected.image}
-                    alt={selected.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-
-                {/* Details */}
-                <div className="text-gray-300 leading-relaxed text-sm whitespace-pre-line mb-8">
-                  {selected.details}
-                </div>
-
-                {/* Footer Buttons */}
-                <div className="flex gap-4 flex-wrap">
-                  {selected.github !== "#" && (
-                    <a href={selected.github} target="_blank" rel="noopener noreferrer">
-                      <NeonButton color={selected.color} variant="solid">
-                        <Github size={16} className="mr-2" /> View on GitHub
-                      </NeonButton>
-                    </a>
-                  )}
-                  <NeonButton color="blue" variant="outline" onClick={() => setSelected(null)}>
-                    Close
-                  </NeonButton>
-                </div>
               </div>
             </motion.div>
           </motion.div>

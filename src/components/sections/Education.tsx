@@ -1,40 +1,70 @@
 "use client";
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, useInView, animate } from "framer-motion";
 import { GraduationCap, BookOpen, School } from "lucide-react";
+
+function AnimatedCounter({ from, to, isFloat = false }: { from: number; to: number; isFloat?: boolean }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true });
+  const [value, setValue] = useState(from);
+
+  useEffect(() => {
+    if (inView) {
+      const controls = animate(from, to, {
+        duration: 2,
+        ease: "easeOut",
+        onUpdate(v) {
+          setValue(isFloat ? Number(v.toFixed(1)) : Math.round(v));
+        },
+      });
+      return () => controls.stop();
+    }
+  }, [from, to, inView, isFloat]);
+
+  return <span ref={ref}>{isFloat ? value.toFixed(1) : value}</span>;
+}
 
 const education = [
   {
     institution: "Lovely Professional University",
     degree: "B.Tech Computer Science and Engineering",
-    score: "CGPA: 7.1",
-    date: "2023 – Present",
+    scorePrefix: "CGPA: ",
+    scoreValue: 7.2,
+    scoreSuffix: "",
+    isFloat: true,
+    date: "Aug 2023 - Present",
     icon: GraduationCap,
   },
   {
     institution: "Dr Virendra Swarup Education Centre School",
     degree: "Intermediate",
-    score: "63%",
-    date: "Completed",
+    scorePrefix: "Percentage: ",
+    scoreValue: 63,
+    scoreSuffix: "%",
+    isFloat: false,
+    date: "Apr 2021 - Mar 2023",
     icon: BookOpen,
   },
   {
     institution: "Dr Virendra Swarup Education Centre School",
     degree: "Matriculation",
-    score: "65%",
-    date: "Completed",
+    scorePrefix: "Percentage: ",
+    scoreValue: 65,
+    scoreSuffix: "%",
+    isFloat: false,
+    date: "Apr 2020 - Mar 2021",
     icon: School,
   }
 ];
 
 export function Education() {
   return (
-    <section id="education" className="py-24 relative overflow-hidden">
+    <section id="education" className="min-h-screen flex items-center justify-center py-12 relative bg-[rgba(0,0,0,0.3)]">
       {/* Background Matrix Effect */}
-      <div className="absolute inset-0 z-0 opacity-5" 
-           style={{ backgroundImage: 'linear-gradient(var(--color-cyber-green) 1px, transparent 1px), linear-gradient(90deg, var(--color-cyber-green) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
-           
+      <div className="absolute inset-0 z-0 opacity-5"
+        style={{ backgroundImage: 'linear-gradient(var(--color-cyber-green) 1px, transparent 1px), linear-gradient(90deg, var(--color-cyber-green) 1px, transparent 1px)', backgroundSize: '50px 50px' }} />
+
       <div className="container px-4 md:px-6 mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,10 +82,10 @@ export function Education() {
         <div className="max-w-3xl mx-auto relative">
           {/* Vertical Timeline Line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-[rgba(0,255,65,0.2)] md:-translate-x-1/2"></div>
-          
+
           <div className="space-y-12">
             {education.map((item, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -75,12 +105,16 @@ export function Education() {
                       <item.icon className="text-[var(--color-cyber-green)] group-hover:scale-110 transition-transform" size={24} />
                       <h3 className="text-xl font-bold text-white font-mono">{item.degree}</h3>
                     </div>
-                    
+
                     <h4 className="text-[var(--color-cyber-blue)] text-lg mb-2">{item.institution}</h4>
-                    
-                    <div className={`flex items-center gap-4 text-sm text-gray-400 ${index % 2 !== 0 && 'md:justify-end'}`}>
-                      <span className="bg-white/5 px-2 py-1 rounded border border-white/10 uppercase tracking-wider">{item.date}</span>
-                      <span className="font-mono text-[var(--color-cyber-green)]">{item.score}</span>
+
+                    <div className={`flex flex-col gap-2 text-sm text-gray-400 items-start ${index % 2 !== 0 && 'md:items-end'}`}>
+                      <span className="bg-white/5 px-2 py-1 rounded border border-white/10 uppercase tracking-wider inline-block">{item.date}</span>
+                      <span className="font-mono text-[var(--color-cyber-green)] whitespace-nowrap">
+                        {item.scorePrefix}
+                        {item.scoreValue !== undefined && <AnimatedCounter from={0} to={item.scoreValue} isFloat={item.isFloat} />}
+                        {item.scoreSuffix}
+                      </span>
                     </div>
                   </div>
                 </div>

@@ -14,7 +14,6 @@ const geistMono = Geist_Mono({
 });
 
 import { MatrixRain } from "@/components/ui/MatrixRain";
-import { LoadingScreen } from "@/components/ui/LoadingScreen";
 
 export const metadata: Metadata = {
   title: "Varun Mehrotra | Cybersecurity Portfolio",
@@ -31,7 +30,6 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-[var(--color-cyber-green)] selection:text-black`}
       >
-        <LoadingScreen />
         <MatrixRain />
         <Navbar />
         {children}

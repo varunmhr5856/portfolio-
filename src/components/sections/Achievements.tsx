@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useInView, animate } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { Trophy, Medal, Hexagon, Star } from "lucide-react";
+import { Trophy, Medal, Hexagon, Star, Code2 } from "lucide-react";
 
 function AnimatedCounter({ from, to }: { from: number; to: number }) {
   const ref = useRef(null);
@@ -28,6 +28,13 @@ function AnimatedCounter({ from, to }: { from: number; to: number }) {
 
 const achievements = [
   {
+    title: "+ LeetCode Problems Solved",
+    countTo: 80,
+    platform: "LeetCode",
+    icon: Code2,
+    color: "blue" as const,
+  },
+  {
     title: " Day TryHackMe Streak",
     countTo: 50,
     platform: "TryHackMe",
@@ -50,7 +57,7 @@ const achievements = [
 
 export function Achievements() {
   return (
-    <section id="achievements" className="py-24 relative overflow-hidden bg-[rgba(10,10,10,0.5)]">
+    <section id="achievements" className="min-h-screen flex items-center justify-center py-12 relative overflow-hidden bg-[rgba(10,10,10,0.5)]">
       {/* Abstract Background Shapes */}
       <div className="absolute -left-32 top-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--color-cyber-blue)] rounded-full blur-[120px] opacity-10 pointer-events-none" />
       <div className="absolute -right-32 top-1/2 -translate-y-1/2 w-64 h-64 bg-[var(--color-cyber-green)] rounded-full blur-[120px] opacity-10 pointer-events-none" />
@@ -79,8 +86,8 @@ export function Achievements() {
               transition={{ duration: 0.5, delay: index * 0.2 }}
               className="flex-1 min-w-[300px] max-w-md perspective-1000"
             >
-              <GlassCard 
-                interactive 
+              <GlassCard
+                interactive
                 glowColor={item.color}
                 className="relative overflow-hidden group flex items-center p-8 border-t-2 transform-style-3d hover:rotate-y-12 transition-all duration-500"
                 style={{ borderTopColor: `var(--color-cyber-${item.color})` }}
@@ -97,7 +104,7 @@ export function Achievements() {
                     <div className="absolute bottom-1 left-1 w-1 h-1 bg-current rounded-full" />
                     <div className="absolute bottom-1 right-1 w-1 h-1 bg-current rounded-full" />
                   </div>
-                  
+
                   <div>
                     <h3 className="text-xl font-bold text-white mb-1 group-hover:text-[var(--color-cyber-${item.color})] transition-colors font-mono">
                       {item.countTo ? (

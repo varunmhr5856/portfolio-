@@ -7,7 +7,7 @@ import { Shield, Brain, Terminal, Server } from "lucide-react";
 
 export function About() {
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="min-h-screen flex items-center justify-center py-12 relative overflow-hidden">
       <div className="container px-4 md:px-6 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,14 +52,19 @@ export function About() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="lg:col-span-4"
             >
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 group aspect-square max-w-[320px] mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[rgba(0,255,65,0.2)] to-transparent z-10" />
+              <div className="relative rounded-full overflow-hidden border-4 border-white/10 group aspect-square max-w-[300px] mx-auto shadow-2xl transition-all duration-500 hover:border-[var(--color-cyber-green)] hover:shadow-[0_0_40px_rgba(0,255,65,0.4)] hover:-translate-y-2">
+                {/* Subtle overlay on hover */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-[rgba(0,255,65,0.2)] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-overlay" />
+                
+                {/* Image */}
                 <img 
-                  src="/about-ai.png" 
-                  alt="Cybersecurity Visual" 
-                  className="w-full h-full object-cover opacity-100 transition-all duration-700 scale-105 group-hover:scale-100"
+                  src="/profile_new.jpg" 
+                  alt="Varun Mehrotra" 
+                  className="w-full h-full object-cover object-[60%_top] transition-all duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 border-2 border-[var(--color-cyber-green)] opacity-0 group-hover:opacity-30 transition-opacity duration-500 z-20" />
+                
+                {/* Inner animating ring on hover */}
+                <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyber-green)] opacity-0 group-hover:opacity-50 transition-all duration-500 z-20 scale-110 group-hover:scale-100" />
               </div>
             </motion.div>
           </div>

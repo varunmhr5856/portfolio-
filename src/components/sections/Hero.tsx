@@ -50,20 +50,19 @@ export function Hero() {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto text-center"
         >
-          {/* Profile Picture */}
-          <div className="relative w-32 h-32 md:w-40 md:h-40 mx-auto mb-8">
-            <div className="absolute inset-0 rounded-full border-2 border-[var(--color-cyber-green)] animate-[pulse_3s_infinite] opacity-50 shadow-[0_0_20px_var(--color-cyber-green)]" />
-            <div className="absolute inset-2 rounded-full border border-[var(--color-cyber-blue)] opacity-40" />
-            <img 
-              src="/profile_new.jpg" 
-              alt="Varun Mehrotra" 
-              className="w-full h-full object-cover object-[center_15%] rounded-full border-2 border-white/10 relative z-10"
-            />
+          {/* Open To Work Badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--color-cyber-green)] bg-[rgba(0,255,65,0.05)] mb-8 shadow-[0_0_15px_rgba(0,255,65,0.2)]">
+            <div className="relative flex h-3 w-3">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-cyber-green)] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[var(--color-cyber-green)]"></span>
+            </div>
+            <span className="text-[var(--color-cyber-green)] text-xs md:text-sm font-bold tracking-wider uppercase">
+              Open for Internship & Work
+            </span>
           </div>
 
-
           <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-6 text-white text-glow">
-            Varun <span className="text-[var(--color-cyber-green)]">Mehrotra</span>
+            I'm Varun <span className="text-[var(--color-cyber-green)]">Mehrotra</span>
           </h1>
 
           <h2 className="text-xl md:text-2xl text-gray-400 font-mono mb-8 h-8">
@@ -76,13 +75,13 @@ export function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <NeonButton color="green" onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}>
+            <NeonButton color="green" onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth", block: "start" })}>
               <Terminal size={18} className="mr-2" /> View Projects
             </NeonButton>
             <NeonButton color="blue" onClick={() => window.open("/resume.pdf", "_blank")}>
               <Download size={18} className="mr-2" /> Download CV
             </NeonButton>
-            <NeonButton color="green" variant="solid" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}>
+            <NeonButton color="green" variant="solid" onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })}>
               <Mail size={18} className="mr-2" /> Contact Me
             </NeonButton>
           </div>

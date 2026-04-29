@@ -18,7 +18,7 @@ export default function Home() {
       <Education />
       <Achievements />
       <Contact />
-      
+
       <footer className="py-8 text-center text-gray-500 border-t border-white/5 font-mono text-sm">
         <p>&copy; {new Date().getFullYear()} Varun Mehrotra. All rights reserved.</p>
         <p className="opacity-50 mt-2 hover:opacity-100 hover:text-[var(--color-cyber-green)] transition-all cursor-default">System.exit(0);</p>

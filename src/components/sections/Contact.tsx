@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { NeonButton } from "@/components/ui/NeonButton";
-import { Mail, Phone, Github, Linkedin, Send, TerminalSquare, CheckCircle, AlertCircle, Loader } from "lucide-react";
+import { Mail, Phone, Github, Linkedin, Send, TerminalSquare, CheckCircle, AlertCircle, Loader, ChevronDown } from "lucide-react";
 
 // Replace YOUR_FORM_ID with the ID from https://formspree.io/
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xeerknno";
@@ -39,7 +39,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative border-t border-[rgba(255,255,255,0.05)]">
+    <section id="contact" className="min-h-screen flex items-center justify-center py-12 relative bg-[rgba(0,0,0,0.5)] border-t border-[rgba(255,255,255,0.05)]">
       <div className="container px-4 md:px-6 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -117,11 +117,11 @@ export function Contact() {
               <div className="absolute top-0 right-0 p-4 opacity-10 blur-sm group-hover:opacity-30 group-hover:blur-none transition-all duration-700 text-[var(--color-cyber-blue)] pointer-events-none">
                 <TerminalSquare size={120} />
               </div>
-              
+
               <h3 className="text-xl font-bold text-white mb-6 font-mono flex items-center gap-2">
                 Send Encrypted Payload
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm text-gray-400 font-mono flex items-center gap-2">
@@ -149,6 +149,29 @@ export function Contact() {
                     className="w-full bg-[rgba(0,0,0,0.3)] border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[var(--color-cyber-blue)] focus:shadow-[0_0_10px_rgba(8,247,254,0.2)] transition-all font-mono text-sm"
                     placeholder="john@example.com"
                   />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="purpose" className="text-sm text-gray-400 font-mono flex items-center gap-2">
+                    <span className="text-[var(--color-cyber-blue)]">{">"}</span> Purpose
+                  </label>
+                  <div className="relative">
+                    <select
+                      id="purpose"
+                      name="purpose"
+                      required
+                      defaultValue=""
+                      className="w-full bg-[rgba(0,0,0,0.3)] border border-white/10 rounded-md px-4 py-3 text-white focus:outline-none focus:border-[var(--color-cyber-blue)] focus:shadow-[0_0_10px_rgba(8,247,254,0.2)] transition-all font-mono text-sm appearance-none cursor-pointer"
+                    >
+                      <option value="" disabled className="bg-[#0a0a0a] text-gray-500">Select Purpose...</option>
+                      <option value="Internship" className="bg-[#0a0a0a]">Internship</option>
+                      <option value="Freelancing Work" className="bg-[#0a0a0a]">Freelancing Work</option>
+                      <option value="Project Collaboration" className="bg-[#0a0a0a]">Project Collaboration</option>
+                      <option value="Job Opportunity" className="bg-[#0a0a0a]">Job Opportunity</option>
+                      <option value="Other" className="bg-[#0a0a0a]">Other</option>
+                    </select>
+                    <ChevronDown size={16} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" />
+                  </div>
                 </div>
 
                 <div className="space-y-2">

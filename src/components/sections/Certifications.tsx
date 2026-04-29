@@ -33,12 +33,19 @@ const certifications = [
     icon: ShieldCheck,
     color: "blue" as const,
     link: "https://drive.google.com/file/d/18eiAx8rntisEksYZlxbsKHyyNSDtpX-o/view",
+  },
+  {
+    title: "Splunk Search Expert Specialization",
+    issuer: "Splunk Inc.",
+    icon: Award,
+    color: "green" as const,
+    link: "https://drive.google.com/file/d/1Fp0c2Eq86DMmF6XcSDSHnORW_n4dbVEG/view",
   }
 ];
 
 export function Certifications() {
   return (
-    <section id="certifications" className="py-24 relative bg-[rgba(0,0,0,0.3)] border-y border-[rgba(255,255,255,0.02)]">
+    <section id="certifications" className="min-h-screen flex items-center justify-center py-12 relative bg-[rgba(0,0,0,0.3)] border-y border-[rgba(255,255,255,0.02)]">
       <div className="container px-4 md:px-6 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,19 +70,19 @@ export function Certifications() {
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <a href={cert.link} target="_blank" rel="noopener noreferrer" className="block h-full outline-none">
-                <GlassCard 
-                  interactive 
+                <GlassCard
+                  interactive
                   glowColor={cert.color}
                   className="h-full flex flex-col items-center text-center p-8 group hover:scale-[1.02] transition-transform duration-300"
                 >
                   <div className={`w-16 h-16 rounded-full flex items-center justify-center mb-6 shadow-lg group-hover:shadow-[0_0_20px_inherit] transition-all duration-300 ${cert.color === 'green' ? 'bg-[rgba(0,255,65,0.1)] text-[var(--color-cyber-green)]' : 'bg-[rgba(8,247,254,0.1)] text-[var(--color-cyber-blue)]'}`}>
                     <cert.icon size={32} />
                   </div>
-                  
+
                   <h3 className="text-lg font-bold text-white mb-2 font-mono group-hover:text-glow transition-all">
                     {cert.title}
                   </h3>
-                  
+
                   <p className="text-sm text-gray-400 mt-auto">
                     {cert.issuer}
                   </p>

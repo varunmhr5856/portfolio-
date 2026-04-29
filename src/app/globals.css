@@ -7,7 +7,6 @@
   --color-cyber-light: #e0e0e0;
 
   --animate-marquee: marquee 25s linear infinite;
-  --animate-marquee-reverse: marquee 25s linear infinite reverse;
   --animate-typing: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
 
   @keyframes marquee {
@@ -30,13 +29,15 @@
     }
   }
 
-  @keyframes scan {
-    from {
-      top: -20%;
+  @keyframes blink-caret {
+
+    from,
+    to {
+      border-color: transparent
     }
 
-    to {
-      top: 120%;
+    50% {
+      border-color: var(--color-cyber-green)
     }
   }
 }
@@ -44,6 +45,8 @@
 :root {
   --background: #050505;
   --foreground: #e0e0e0;
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {

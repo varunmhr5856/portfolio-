@@ -26,7 +26,7 @@ const marqueeSkills = [...skills, ...skills, ...skills];
 
 export function Skills() {
   return (
-    <section id="skills" className="py-24 relative overflow-hidden bg-[rgba(0,0,0,0.3)]">
+    <section id="skills" className="min-h-screen flex flex-col items-center justify-center py-12 relative overflow-hidden bg-[rgba(0,0,0,0.3)]">
       <div className="container px-4 md:px-6 mx-auto mb-16 text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
           Tech Stack & Tools
